@@ -1,0 +1,17 @@
+{
+  "name": "rails_dev_container_examplee",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.3.0",
+    "turbolinks": "^5.2.0",
+    "vue": "^3.2.45",
+    "vue-loader": "^17.0.1",
+    "vue-template-compiler": "^2.7.14"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^4.11.1"
+  }
+}
