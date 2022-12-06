@@ -1,17 +1,24 @@
 services:
   rails:
     build:
+      # プロジェクト全体をビルドコンテキストに設定
       context: ../
       dockerfile: .devcontainer/Dockerfile
+    # x86_64用を指定してビルド(amd64なのは多分大人の都合...)
     platform: linux/amd64
     image: rails_dev_container_example
     volumes:
+      # プロジェクト全体を/appにマウント
       - ../:/app
+      # /app/node_modulesのみビルド時のものを使用(volume trick)
       - /app/node_modules
     ports:
+    # コンテナを3000をホストの3000にフォワード
       - 3000:3000
     environment:
+      # webpackコンテナで実行しているwebpack-dev-serverを見にいく
       - WEBPACKER_DEV_SERVER_HOST=webpack
+    # 何も実行しない状態でコンテナを待機させる
     command: sleep infinity
   webpack:
     image: rails_dev_container_example
@@ -22,4 +29,5 @@ services:
       - 3035:3035
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    # webpack-dev-serverを実行する
     command: bin/webpack-dev-server

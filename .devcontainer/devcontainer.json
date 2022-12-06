@@ -1,6 +1,18 @@
 {
-	"name": "Ruby on Rails",
+	"name": "Rails on x86",
 	"dockerComposeFile": "docker-compose.yml",
+	// VSCodeで接続するコンテナ
 	"service": "rails",
-	"workspaceFolder": "/app"
+	// VSCodeで開くフォルダ
+	"workspaceFolder": "/app",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"endverbraucher.pack-rails",
+				"castwide.solargraph",
+				"Vue.volar",
+				"walkme.Ruby-extension-pack"
+			]
+		}
+	}
 }
