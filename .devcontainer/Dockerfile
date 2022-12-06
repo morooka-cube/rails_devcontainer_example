@@ -26,7 +26,7 @@ COPY --from=node /usr/local/bin/yarnpkg /usr/local/bin/yarnpkg
 COPY --from=node /opt/yarn-v1.22.19 /opt/yarn-v1.22.19
 
 RUN \
-# nodeとyarnが実行できるようシンボリックリンクを設定
+  # nodeとyarnが実行できるようシンボリックリンクを設定
   ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
   ln -s /opt/yarn-v1.22.19/bin/yarn.js /usr/local/bin/yarn.js && \
   # デバッグ用のGemをインストール
@@ -42,7 +42,7 @@ COPY Gemfile Gemfile.lock /app/
 RUN bundle install
 
 # yarn install結果をコピー
-COPY --from=yarn /app/package.json /app/yarn.lock /app/node_modules /app/
+COPY --from=yarn /app /app/
 
 # ポート3000番に穴を開ける
 EXPOSE 3000
